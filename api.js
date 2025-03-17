@@ -50,6 +50,9 @@ export const edit = async(data)=>{
     return response;
 
 }
-export const remove = ()=>{
-    
+export const remove = async()=>{
+    const url = new URL(`https://${KEY}.mockapi.io/`) 
+    url.pathname += `informacion/${id}` 
+    const response = await fetch(url.toString(), {method: "delete"}) 
+    return await response.json(); 
 }
